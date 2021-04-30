@@ -12,22 +12,22 @@ All images are built for amd64 and arm64.
 ### Docker hub
 
 * `jitesoft/composer`
-    * `8.0`, `rc`, `unstable`
-    * `7.4`, `7`, `stable`, `latest`
+    * `8.0`, `8`, `stable`, `latest`
+    * `7.4`, `7`
     * `7.3`
 
 ### GitLab
 
 * `registry.gitlab.com/jitesoft/dockerfiles/composer-alpine`
-    * `8.0`, `rc`, `unstable`
-    * `7.4`, `7`, `stable`, `latest`
+    * `8.0`, `8`, `stable`, `latest`
+    * `7.4`, `7`
     * `7.3`
 
 ### GitHub
 
 * `ghcr.io/jitesoft/composer`
-    * `8.0`, `rc`, `unstable`
-    * `7.4`, `7`, `stable`, `latest`
+    * `8.0`, `8`, `stable`, `latest`
+    * `7.4`, `7`
     * `7.3`
 
 _Note:  
