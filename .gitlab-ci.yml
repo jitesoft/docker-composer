@@ -23,7 +23,7 @@ download:
     paths:
       - downloads/
 
-build: &build
+build:
   parallel:
     matrix:
       - { VERSION: "7.3", TAGS: "7.3" }
@@ -48,9 +48,9 @@ scan:
       artifacts: false
   parallel:
     matrix:
-      - { IMAGE: "${CI_REGISTRY_IMAGE}:7.3", GIT_STRATEGY: "none" }
-      - { IMAGE: "${CI_REGISTRY_IMAGE}:7.4", GIT_STRATEGY: "none" }
-      - { IMAGE: "${CI_REGISTRY_IMAGE}:8.0", GIT_STRATEGY: "none" }
+      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:7.3", GIT_STRATEGY: "none" }
+      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:7.4", GIT_STRATEGY: "none" }
+      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:8.0", GIT_STRATEGY: "none" }
 
 trigger:phpunt:
   stage: .post
