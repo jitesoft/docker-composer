@@ -28,7 +28,8 @@ build:
     matrix:
       - { VERSION: "7.3", TAGS: "7.3" }
       - { VERSION: "7.4", TAGS: "7,7.4" }
-      - { VERSION: "8.0", TAGS: "latest,stable,8,8.0" }
+      - { VERSION: "8.0", TAGS: "8.0" }
+      - { VERSION: "8.1", TAGS: "latest,stable,8,8.1" }
   image: registry.gitlab.com/jitesoft/dockerfiles/misc:latest
   stage: build
   needs:
