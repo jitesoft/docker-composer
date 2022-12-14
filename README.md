@@ -3,7 +3,10 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/jitesoft/composer.svg)](https://hub.docker.com/r/jitesoft/composer)
 [![Back project](https://img.shields.io/badge/Open%20Collective-Tip%20the%20devs!-blue.svg)](https://opencollective.com/jitesoft-open-source)
 
-PHP cli and Composer running on alpine linux.
+PHP cli and Composer running on alpine linux.  
+  
+_Note:  
+Earlier versions of this image was built using php-fpm, since 2020-01-01 the image changed to use the CLI image as default._
 
 ## Tags
 
@@ -12,29 +15,14 @@ All images are built for amd64 and arm64.
 ### Docker hub
 
 * `jitesoft/composer`
-    * `8.1`, `8`, `stable`, `latest`
-    * `8.0`
-    * `7.4`, `7`
-    * `7.3`
 
 ### GitLab
 
 * `registry.gitlab.com/jitesoft/dockerfiles/composer-alpine`
-    * `8.1`, `8`, `stable`, `latest`
-    * `8.0`
-    * `7.4`, `7`
-    * `7.3`
 
 ### GitHub
 
 * `ghcr.io/jitesoft/composer`
-    * `8.1`, `8`, `stable`, `latest`
-    * `8.0`
-    * `7.4`, `7`
-    * `7.3`
-
-_Note:  
-Earlier versions of this image was built using php-fpm, since 2020-01-01 the image changed to use the CLI image as default._
 
 Dockerfile can be found at [GitLab](https://gitlab.com/jitesoft/dockerfiles/composer-alpine) and [GitHub](https://github.com/Johannestegner/docker-composer-alpine/blob/master/Dockerfile)
 
