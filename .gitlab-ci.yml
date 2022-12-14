@@ -26,10 +26,9 @@ download:
 build:
   parallel:
     matrix:
-      - { VERSION: "7.3", TAGS: "7.3" }
-      - { VERSION: "7.4", TAGS: "7,7.4" }
       - { VERSION: "8.0", TAGS: "8.0" }
-      - { VERSION: "8.1", TAGS: "latest,stable,8,8.1" }
+      - { VERSION: "8.1", TAGS: "8.1" }
+      - { VERSION: "8.2", TAGS: "latest,stable,8,8.2" }
   image: registry.gitlab.com/jitesoft/dockerfiles/misc:latest
   stage: build
   needs:
@@ -49,9 +48,9 @@ scan:
       artifacts: false
   parallel:
     matrix:
-      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:7.3", GIT_STRATEGY: "none" }
-      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:7.4", GIT_STRATEGY: "none" }
       - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:8.0", GIT_STRATEGY: "none" }
+      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:8.1", GIT_STRATEGY: "none" }
+      - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:8.2", GIT_STRATEGY: "none" }
 
 trigger:phpunt:
   stage: .post
