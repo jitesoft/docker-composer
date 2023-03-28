@@ -46,6 +46,7 @@ download:
       - downloads/
 
 build:
+  when: on_success
   parallel:
     matrix:
       - { VERSION: "8.0", TAGS: "8.0" }
@@ -63,6 +64,7 @@ build:
   tags: [ jitesoft, buildx, protected ]
 
 scan:
+  when: on_success
   stage: scan
   extends: .scan.container.trivy.remote
   needs:
