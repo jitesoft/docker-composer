@@ -1,3 +1,7 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
 include:
   - file: /Scan/trivy.yml
     project: jitesoft/gitlab-ci-lib
@@ -19,6 +23,11 @@ update-readme:
   tags: [ protected ]
 
 download:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: always
   stage: .pre
   image: registry.gitlab.com/jitesoft/dockerfiles/alpine:latest
   variables:
