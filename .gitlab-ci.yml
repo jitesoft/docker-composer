@@ -46,7 +46,11 @@ download:
       - downloads/
 
 build:
-  when: on_success
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: on_success
   parallel:
     matrix:
       - { VERSION: "8.0", TAGS: "8.0" }
@@ -64,7 +68,11 @@ build:
   tags: [ jitesoft, buildx, protected ]
 
 scan:
-  when: on_success
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: on_success
   stage: scan
   extends: .scan.container.trivy.remote
   needs:
@@ -77,6 +85,11 @@ scan:
       - { SCANNING_IMAGE_NAME: "${CI_REGISTRY_IMAGE}:8.2", GIT_STRATEGY: "none" }
 
 trigger:phpunt:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: on_success
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: on_success
   stage: .post
   trigger:
     project: jitesoft/dockerfiles/phpunit
