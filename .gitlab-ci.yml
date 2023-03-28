@@ -1,9 +1,22 @@
 include:
-  - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/Scan/trivy.yml
+  - file: /Scan/trivy.yml
+    project: jitesoft/gitlab-ci-lib
+  - file: /OCI/push-readme.yml
+    project: jitesoft/gitlab-ci-lib
 
 stages:
+  - readme
   - build
   - scan
+
+update-readme:
+  stage: readme
+  extends: .readme-check.v2
+  variables:
+    PUSHRM_FILE: "$CI_PROJECT_DIR/README.md"
+    GIT_DEPTH: "3"
+    REGISTRIES: "quay.io/jitesoft/composer,docker.io/jitesoft/composer"
+  tags: [ protected ]
 
 download:
   stage: .pre
